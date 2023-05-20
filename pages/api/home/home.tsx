@@ -11,6 +11,9 @@ import { useCreateReducer } from '@/hooks/useCreateReducer';
 import useErrorService from '@/services/errorService';
 import useApiService from '@/services/useApiService';
 
+import { parse } from 'cookie';
+
+
 import {
   cleanConversationHistory,
   cleanSelectedConversation,
@@ -406,7 +409,22 @@ const Home = ({
 };
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, locale }) => {
+  // Parse cookies from the incoming request
+  const cookies = parse(req.headers.cookie || '');
+
+  // If the user is not logged in, redirect to the login page
+  if (cookies.isLoggedIn !== 'true') {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  // ...rest of your getServerSideProps code
+
   const defaultModelId =
     (process.env.DEFAULT_MODEL &&
       Object.values(OpenAIModelID).includes(

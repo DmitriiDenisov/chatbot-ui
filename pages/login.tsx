@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 
+import Cookies from 'js-cookie';
+
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +16,8 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     if (username === '123' && password === '123') {
       // set a flag in LocalStorage
-      localStorage.setItem('isLoggedIn', 'true');
+      // localStorage.setItem('isLoggedIn', 'true');
+      Cookies.set('isLoggedIn', 'true');
       // Redirect to the home page using Next.js's router
       router.push('/');
     } else {
