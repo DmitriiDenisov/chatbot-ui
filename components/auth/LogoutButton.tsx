@@ -12,8 +12,7 @@ const LogoutButton: React.FC = () => {
 
   return (
       <button onClick={logout} className="button-logout">
-        </>
-        // <LogoutIcon size={20} />
+        {/* <LogoutIcon size={20} /> */}
         Log out
       </button>
     );
