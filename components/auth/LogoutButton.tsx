@@ -1,3 +1,4 @@
+import { IconLogout } from '@tabler/icons-react';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 // import { LogoutIcon } from '@tabler/icons-react';
@@ -11,11 +12,14 @@ const LogoutButton: React.FC = () => {
   };
 
   return (
-      <button onClick={logout} className="button-logout">
-        {/* <LogoutIcon size={20} /> */}
-        Log out
-      </button>
-    );
+    <button
+      className="flex items-center space-x-2 w-full text-left px-3 py-2"
+      onClick={logout}
+    >
+      <IconLogout size={18} />
+      <span>Log out</span>
+    </button>
+  );
 };
 
 export default LogoutButton;
