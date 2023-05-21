@@ -20,6 +20,7 @@ import { ClearConversations } from './ClearConversations';
 import { PluginKeys } from './PluginKeys';
 
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 
 export const ChatbarSettings = () => {
   const { t } = useTranslation('sidebar');
