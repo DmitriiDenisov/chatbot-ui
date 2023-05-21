@@ -6,7 +6,7 @@ const LogoutButton: React.FC = () => {
   const router = useRouter();
 
   const logout = () => {
-    Cookies.remove('userLoggedIn');
+    Cookies.remove('isLoggedIn');
     router.push('/login');
   };
 
