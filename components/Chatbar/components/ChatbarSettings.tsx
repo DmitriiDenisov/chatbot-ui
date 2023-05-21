@@ -19,6 +19,8 @@ import ChatbarContext from '../Chatbar.context';
 import { ClearConversations } from './ClearConversations';
 import { PluginKeys } from './PluginKeys';
 
+import { useRouter } from 'next/router';
+
 export const ChatbarSettings = () => {
   const { t } = useTranslation('sidebar');
 
