@@ -2,23 +2,18 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-
 import Cookies from 'js-cookie';
+import { Button, TextField, Grid, Paper, Typography, Link } from '@material-ui/core';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  // Use Next.js's useRouter hook
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (username === '123' && password === '123') {
-      // set a flag in LocalStorage
-      // localStorage.setItem('isLoggedIn', 'true');
       Cookies.set('isLoggedIn', 'true');
-      // Redirect to the home page using Next.js's router
       router.push('/');
     } else {
       alert('Incorrect credentials.');
@@ -26,21 +21,40 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      <button type="submit">Log in</button>
-    </form>
+    <Grid container justify="center" style={{ minHeight: '100vh' }}>
+      <Grid item>
+        <Paper style={{ padding: '50px', width: '300px' }}>
+          <Grid container direction="column" spacing={2}>
+            <Grid item>
+              <Typography variant="h5">Login</Typography>
+            </Grid>
+            <form onSubmit={handleSubmit}>
+              <Grid item>
+                <TextField
+                  required
+                  type="text"
+                  label="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </Grid>
+              <Grid item>
+                <TextField
+                  required
+                  type="password"
+                  label="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Grid>
+              <Grid item>
+                <Button type="submit" variant="contained" color="primary">Log in</Button>
+              </Grid>
+            </form>
+          </Grid>
+        </Paper>
+      </Grid>
+    </Grid>
   );
 };
 
