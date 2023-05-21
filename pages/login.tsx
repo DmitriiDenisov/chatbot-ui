@@ -21,7 +21,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Grid container justify="center" style={{ minHeight: '100vh' }}>
+    <Grid container justifyContent="center" style={{ minHeight: '100vh' }}>
       <Grid item>
         <Paper style={{ padding: '50px', width: '300px' }}>
           <Grid container direction="column" spacing={2}>
