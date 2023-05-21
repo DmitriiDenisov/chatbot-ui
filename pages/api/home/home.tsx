@@ -407,10 +407,6 @@ const Home = ({
             <Promptbar />
           </div>
 
-          <div className="absolute bottom-0 left-0 p-4">
-            <LogoutButton />
-          </div>
-
         </main>
       )}
     </HomeContext.Provider>

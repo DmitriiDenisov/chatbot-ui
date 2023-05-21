@@ -5,6 +5,9 @@ import { useTranslation } from 'next-i18next';
 
 import HomeContext from '@/pages/api/home/home.context';
 
+import LogoutButton from '../../../components/auth/LogoutButton';
+
+
 import { SettingDialog } from '@/components/Settings/SettingDialog';
 
 import { Import } from '../../Settings/Import';
@@ -61,6 +64,8 @@ export const ChatbarSettings = () => {
       ) : null}
 
       {!serverSidePluginKeysSet ? <PluginKeys /> : null}
+
+      <LogoutButton />
 
       <SettingDialog
         open={isSettingDialogOpen}
