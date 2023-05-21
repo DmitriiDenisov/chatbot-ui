@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 
-import { IconFileExport, IconSettings, IconLogoutBox } from '@tabler/icons-react';
+import { IconFileExport, IconSettings, IconLogOut } from '@tabler/icons-react';
 
 
 import { useTranslation } from 'next-i18next';
@@ -68,7 +68,7 @@ export const ChatbarSettings = () => {
       {!serverSidePluginKeysSet ? <PluginKeys /> : null}
 
         <div className="flex items-center space-x-2 w-full">
-          <IconLogoutBox size={18} />
+          <IconLogOut size={18} />
           <LogoutButton />
         </div>
 
