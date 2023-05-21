@@ -86,7 +86,7 @@ const Home = ({
 
   useEffect(() => {
       // Redirect to login page if user is not logged in
-      if (typeof window !== 'undefined' && localStorage.getItem('isLoggedIn') !== 'true') {
+      if (typeof window !== 'undefined' && Cookies.get('isLoggedIn') !== 'true') {
         router.push('/login');
       }
     }, []); // Empty dependency array means this effect runs once on mount
