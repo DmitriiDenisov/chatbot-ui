@@ -13,7 +13,9 @@ const LogoutButton: React.FC = () => {
 
   return (
     <button
-      className="flex items-center space-x-2 w-full text-left px-3 py-2"
+    // flex items-center space-x-2 w-full text-left px-3 py-2
+    // flex items-center space-x-2 w-full pl-2
+      className="flex items-center space-x-2 w-full pl-2"
       onClick={logout}
     >
       <IconLogout size={18} />
