@@ -65,9 +65,10 @@ export const ChatbarSettings = () => {
 
       {!serverSidePluginKeysSet ? <PluginKeys /> : null}
 
-      <div className="flex items-center w-full space-x-2">
-        <LogoutButton />
-      </div>
+        <div className="flex items-center space-x-2 w-full">
+          <IconLogout size={18} />
+          <LogoutButton />
+        </div>
 
 
       <SettingDialog
