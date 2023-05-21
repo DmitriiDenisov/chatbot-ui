@@ -21,6 +21,13 @@ import { PluginKeys } from './PluginKeys';
 
 export const ChatbarSettings = () => {
   const { t } = useTranslation('sidebar');
+
+  const router = useRouter();
+  const handleLogout = () => {
+      Cookies.remove('isLoggedIn');
+      router.push('/login');
+  };
+
   const [isSettingDialogOpen, setIsSettingDialog] = useState<boolean>(false);
 
   const {
@@ -67,7 +74,11 @@ export const ChatbarSettings = () => {
 
       {!serverSidePluginKeysSet ? <PluginKeys /> : null}
 
-    <LogoutButton />
+    <SidebarButton
+      text={t('Logout')}
+      icon={<IconLogout size={18} />}
+      onClick={handleLogout}
+    />
 
       <SettingDialog
         open={isSettingDialogOpen}
