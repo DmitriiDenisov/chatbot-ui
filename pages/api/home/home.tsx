@@ -12,6 +12,8 @@ import useErrorService from '@/services/errorService';
 import useApiService from '@/services/useApiService';
 
 import { parse } from 'cookie';
+import Cookies from 'js-cookie';
+
 
 import LogoutButton from '../../../components/auth/LogoutButton';
 
