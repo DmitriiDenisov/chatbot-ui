@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import { Button, TextField, Grid, Paper, Typography, Link } from '@material-ui/core';
+import { Button, TextField, Grid, Paper, Typography, Link } from '@mui/material';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
