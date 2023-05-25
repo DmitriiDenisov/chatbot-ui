@@ -121,11 +121,11 @@ export const importData = (
 
   const newHistory: Conversation[] = [
     ...oldConversationsParsed,
-    ...history,
-  ].filter(
-    (conversation, index, self) =>
-      index === self.findIndex((c) => c.id === conversation.id),
-  );
+    ...history.map(conversation => ({
+      ...conversation,
+      id: `${conversation.id}_${new Date().getTime()}`, // append timestamp to id
+    })),
+  ];
   localStorage.setItem('conversationHistory', JSON.stringify(newHistory));
   if (newHistory.length > 0) {
     localStorage.setItem(
