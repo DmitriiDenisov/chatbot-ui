@@ -96,9 +96,14 @@ export const Chatbar = () => {
 
   const { state: { selectedConversation } } = useContext(HomeContext);
 
-  const handleExportData = () => {
+    const handleExportCurrentConversation = () => {
+      if (selectedConversation) {
         exportCurrentConversation(selectedConversation);
-  };
+      } else {
+        // Handle the case where selectedConversation is undefined
+        console.error("No conversation selected.");
+      }
+    };
 
   const handleImportConversations = (data: SupportedExportFormats) => {
     const { history, folders, prompts }: LatestExportFormat = importData(data);
