@@ -47,7 +47,7 @@ export const ChatbarSettings = () => {
   const {
     handleClearConversations,
     handleImportConversations,
-    handleExportData,
+    handleExportCurrentConversation,
     handleApiKeyChange,
   } = useContext(ChatbarContext);
 
@@ -62,7 +62,7 @@ export const ChatbarSettings = () => {
       <SidebarButton
         text={t('Export data')}
         icon={<IconFileExport size={18} />}
-        onClick={() => handleExportData()}
+        onClick={() => handleExportCurrentConversation()}
       />
 
       <SidebarButton

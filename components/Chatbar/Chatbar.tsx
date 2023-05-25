@@ -220,7 +220,7 @@ export const Chatbar = () => {
         handleDeleteConversation,
         handleClearConversations,
         handleImportConversations,
-        handleExportData,
+        // handleExportData,
         handleExportCurrentConversation, // <-- Add this line
         handlePluginKeyChange,
         handleClearPluginKey,
