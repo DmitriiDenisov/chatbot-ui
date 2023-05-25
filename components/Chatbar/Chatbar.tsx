@@ -221,6 +221,7 @@ export const Chatbar = () => {
         handleClearConversations,
         handleImportConversations,
         handleExportData,
+        handleExportCurrentConversation, // <-- Add this line
         handlePluginKeyChange,
         handleClearPluginKey,
         handleApiKeyChange,
