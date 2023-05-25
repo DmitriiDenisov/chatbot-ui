@@ -162,3 +162,26 @@ export const importData = (
     prompts: newPrompts,
   };
 };
+
+export const exportCurrentConversation = (currentConversation: Conversation) => {
+  const data = {
+    version: 4,
+    history: [currentConversation],
+    folders: [],
+    prompts: [],
+  } as LatestExportFormat;
+
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
+    type: 'application/json',
+  });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.download = `chatbot_ui_history_${currentDate()}.json`;
+  link.href = url;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+};
+
