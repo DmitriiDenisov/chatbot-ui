@@ -28,7 +28,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 import { useState } from 'react';
-import { Button, Modal } from '@material-ui/core';
+import { Modal, Button } from '@mui/material';
 
 
 export const Chatbar = () => {
