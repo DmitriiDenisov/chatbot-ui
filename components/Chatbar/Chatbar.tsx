@@ -30,8 +30,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { Button, Modal } from '@material-ui/core';
 
-const [isModalOpen, setModalOpen] = useState(false);
-
 
 export const Chatbar = () => {
   const { t } = useTranslation('sidebar');
@@ -61,6 +59,8 @@ export const Chatbar = () => {
     },
     [homeDispatch],
   );
+
+    const [isModalOpen, setModalOpen] = useState(false);
 
   const ChatbarHeader = ({ handleNewConversation, handleOpenFormatsList }) => (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
