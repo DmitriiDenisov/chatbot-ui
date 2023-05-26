@@ -26,6 +26,13 @@ import { ChatbarInitialState, initialState } from './Chatbar.state';
 
 import { v4 as uuidv4 } from 'uuid';
 
+
+import { useState } from 'react';
+import { Button, Modal } from '@material-ui/core';
+
+const [isModalOpen, setModalOpen] = useState(false);
+
+
 export const Chatbar = () => {
   const { t } = useTranslation('sidebar');
 
@@ -53,6 +60,13 @@ export const Chatbar = () => {
       localStorage.setItem('apiKey', apiKey);
     },
     [homeDispatch],
+  );
+
+  const ChatbarHeader = ({ handleNewConversation, handleOpenFormatsList }) => (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Button onClick={handleOpenFormatsList}>List of Formats</Button>
+      <Button onClick={handleNewConversation}>New Chat</Button>
+    </div>
   );
 
   const handlePluginKeyChange = (pluginKey: PluginKey) => {
@@ -230,7 +244,12 @@ export const Chatbar = () => {
       <Sidebar<Conversation>
         side={'left'}
         isOpen={showChatbar}
-        addItemButtonTitle={t('New chat')}
+        headerComponent={
+            <ChatbarHeader
+              handleNewConversation={handleNewConversation}
+              handleOpenFormatsList={() => setModalOpen(true)}
+            />
+          }
         itemComponent={<Conversations conversations={filteredConversations} />}
         folderComponent={<ChatFolders searchTerm={searchTerm} />}
         items={filteredConversations}
@@ -244,6 +263,16 @@ export const Chatbar = () => {
         handleDrop={handleDrop}
         footerComponent={<ChatbarSettings />}
       />
+    <Modal
+      open={isModalOpen}
+      onClose={() => setModalOpen(false)}
+      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+    >
+      <div style={{ background: 'white', padding: '1em' }}>
+        {/* Your content here */}
+        <Button onClick={() => setModalOpen(false)}>Close</Button>
+      </div>
+    </Modal>
     </ChatbarContext.Provider>
   );
 };
