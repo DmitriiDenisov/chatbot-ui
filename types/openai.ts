@@ -6,10 +6,10 @@ export interface OpenAIModel {
   maxLength: number; // maximum length of a message
   tokenLimit: number;
 }
-
 export enum OpenAIModelID {
   GPT_3_5 = 'gpt-3.5-turbo-16k',
   GPT_3_5_AZ = 'gpt-3.5-turbo-16k',
+  GPT_3_5_TURBO_16K = 'gpt-3.5-turbo-16k',
   GPT_4 = 'gpt-4',
   GPT_4_32K = 'gpt-4-32k',
 }
@@ -22,19 +22,25 @@ export const OpenAIModels: Record<OpenAIModelID, OpenAIModel> = {
     id: OpenAIModelID.GPT_3_5,
     name: 'GPT-3.5',
     maxLength: 12000,
-    tokenLimit: 4000,
+    tokenLimit: 12000,
+  },
+  [OpenAIModelID.GPT_3_5_TURBO_16K]: { // Добавьте этот блок
+    id: OpenAIModelID.GPT_3_5_TURBO_16K,
+    name: 'GPT-3.5 Turbo 16K',
+    maxLength: 12000, // Укажите максимальную длину для этой модели
+    tokenLimit: 12000, // Укажите ограничение токенов для этой модели
   },
   [OpenAIModelID.GPT_3_5_AZ]: {
     id: OpenAIModelID.GPT_3_5_AZ,
     name: 'GPT-3.5',
     maxLength: 12000,
-    tokenLimit: 4000,
+    tokenLimit: 12000,
   },
   [OpenAIModelID.GPT_4]: {
     id: OpenAIModelID.GPT_4,
     name: 'GPT-4',
     maxLength: 24000,
-    tokenLimit: 8000,
+    tokenLimit: 12000,
   },
   [OpenAIModelID.GPT_4_32K]: {
     id: OpenAIModelID.GPT_4_32K,
