@@ -57,7 +57,7 @@ export const OpenAIStream = async (
         },
         ...messages,
       ],
-      max_tokens: 12000,
+      max_tokens: 200000,
       temperature: temperature,
       stream: true,
     }),
