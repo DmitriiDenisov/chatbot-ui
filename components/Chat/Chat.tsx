@@ -57,7 +57,8 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
     handleUpdateConversation,
     dispatch: homeDispatch,
   } = useContext(HomeContext);
-
+  
+  const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [currentMessage, setCurrentMessage] = useState<Message>();
   const [autoScrollEnabled, setAutoScrollEnabled] = useState<boolean>(true);
   const [showSettings, setShowSettings] = useState<boolean>(false);
@@ -488,6 +489,28 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
             )}
           </div>
 
+                {selectedPrompt && (
+                  <div
+                    style={{
+                    backgroundColor: "purple",
+                    color: "white",
+                    padding: "10px",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+          }}
+                >
+                  <span>{selectedPrompt}</span>
+                  <span
+                    onClick={() => setSelectedPrompt(null)}
+                    style={{ cursor: "pointer" }}
+                >
+                  &times;
+              </span>
+            </div>
+          )}
+
+          
           <ChatInput
             stopConversationRef={stopConversationRef}
             textareaRef={textareaRef}
